@@ -21,4 +21,22 @@
     <PackageReference Include="NUnit.Allure.Steps" Version="1.0.9" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="common\config\" />
+    <None Remove="tests\" />
+    <None Remove="resources\" />
+    <None Remove="resources\us.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="common\config\" />
+    <Folder Include="tests\" />
+    <Folder Include="common\config\us.json">
+    </Folder>
+    <Folder Include="resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="resources\us.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
 </Project>

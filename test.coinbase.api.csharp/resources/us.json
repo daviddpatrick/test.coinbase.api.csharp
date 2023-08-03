@@ -1,0 +1,6 @@
+﻿{
+  "env": {
+    "name": "us"
+  },
+  "coinbase_url": "https://api.coinbase.com"
+}

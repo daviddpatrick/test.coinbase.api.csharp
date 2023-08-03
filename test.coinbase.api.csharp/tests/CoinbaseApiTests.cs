@@ -1,5 +1,6 @@
 ﻿using NUnit.Allure.Core;
 using test.coinbase.api.csharp.common.clients;
+using test.coinbase.api.csharp.common.config;
 
 namespace test.coinbase.api;
 
@@ -7,12 +8,18 @@ namespace test.coinbase.api;
 [TestFixture]
 public class CoinbaseApiTests
 {
+    public ConfigurationPoc configurationPoc;
     public CoinbaseClient coinbaseClient;
 
     [OneTimeSetUp]
     public void Setup()
     {
-        coinbaseClient = new CoinbaseClient("https://api.coinbase.com", "", 0, "", 0, null);
+        configurationPoc = new ConfigurationPoc();
+        var config = configurationPoc.GetConfigurationPoc();
+        if (config is not null)
+        {
+            coinbaseClient = new CoinbaseClient(config.CoinbaseUrl, "", 0, "", 0, null);
+        }
     }
 
     [Test]
